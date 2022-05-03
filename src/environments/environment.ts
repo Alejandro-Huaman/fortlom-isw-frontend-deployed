@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  productoURL: 'http://localhost:8080/api/v1',
-  authURL: 'http://localhost:8080/auth',
-  changePasswordURL:'http://localhost:8080/email-password'
+  productoURL: 'https://fortlom-isw-backend.herokuapp.com/api/v1',
+  authURL: 'https://fortlom-isw-backend.herokuapp.com/auth',
+  changePasswordURL:'https://fortlom-isw-backend.herokuapp.com/email-password'
 };
 
 /*
