@@ -9,8 +9,8 @@ import { Report } from 'src/app/models/report';
 })
 export class ReportService {
 
-  basePath = environment.productoURL+'/reports';
-basePath2= environment.productoURL+'/usersmains'
+  basePath = 'https://fortlom-isw-backend.herokuapp.com/api/v1/reports';
+basePath2= 'https://fortlom-isw-backend.herokuapp.com/api/v1/usersmains'
   
   httpOptions = {
     headers: new HttpHeaders({

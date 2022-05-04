@@ -9,7 +9,7 @@ import { Person } from 'src/app/models/Person';
 })
 export class PersonService {
 
-  basePath = environment.productoURL+'/users';
+  basePath = 'https://fortlom-isw-backend.herokuapp.com/api/v1/users';
   basePath2 = 'http://localhost:3000/Usuario';
   
   httpOptions = {

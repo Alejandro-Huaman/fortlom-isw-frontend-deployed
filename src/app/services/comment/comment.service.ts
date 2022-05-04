@@ -17,9 +17,9 @@ import { Comment } from 'src/app/models/comment';
 })
 export class CommentService {
 
-  basePath =environment.productoURL+'/comments'
-  basePath2 =environment.productoURL+'/users'
-  basePath3 =environment.productoURL+'/publications'
+  basePath ='https://fortlom-isw-backend.herokuapp.com/api/v1/comments'
+  basePath2 ='https://fortlom-isw-backend.herokuapp.com/api/v1/users'
+  basePath3 ='https://fortlom-isw-backend.herokuapp.com/api/v1/publications'
 
 httpOptions = {
   headers: new HttpHeaders({

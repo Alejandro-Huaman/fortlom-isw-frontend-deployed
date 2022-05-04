@@ -13,9 +13,9 @@ export class EventService {
 
 
 
-basePath = environment.productoURL+'/event';
-BasePath=  environment.productoURL+'/events';
-basepathcreate=environment.productoURL+'/artist';
+basePath = 'https://fortlom-isw-backend.herokuapp.com/api/v1/event';
+BasePath=  'https://fortlom-isw-backend.herokuapp.com/api/v1/events';
+basepathcreate='https://fortlom-isw-backend.herokuapp.com/api/v1/artist';
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',

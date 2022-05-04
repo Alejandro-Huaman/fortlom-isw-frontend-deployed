@@ -9,7 +9,7 @@ import { Fanatic } from 'src/app/models/fanatic';
 })
 export class FanaticService {
 
-  basePath = environment.productoURL+'/fanatics';
+  basePath = 'https://fortlom-isw-backend.herokuapp.com/api/v1/fanatics';
   
   
   httpOptions = {

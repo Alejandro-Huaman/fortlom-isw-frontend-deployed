@@ -9,8 +9,8 @@ import { Multimedia } from 'src/app/models/multimedia';
 })
 export class MultimediaService {
 
-  basePath = environment.productoURL+'/multimedias';
-  basePath2=environment.productoURL+'/publications'
+  basePath = 'https://fortlom-isw-backend.herokuapp.com/api/v1/multimedias';
+  basePath2='https://fortlom-isw-backend.herokuapp.com/api/v1/publications'
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

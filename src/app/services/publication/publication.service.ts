@@ -10,8 +10,8 @@ import { Publication } from 'src/app/models/publication';
 export class PublicationService {
 
 
-  basePath = environment.productoURL+'/publications';
-  basepath2= environment.productoURL+'/artists';
+  basePath = 'https://fortlom-isw-backend.herokuapp.com/api/v1/publications';
+  basepath2= 'https://fortlom-isw-backend.herokuapp.com/api/v1/artists';
   
   httpOptions = {
     headers: new HttpHeaders({

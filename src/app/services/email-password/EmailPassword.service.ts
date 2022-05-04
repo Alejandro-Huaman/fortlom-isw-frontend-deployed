@@ -9,7 +9,7 @@ import { EmailValues } from 'src/app/models/email-values';
 })
 export class EmailPasswordService {
 
-  basePath=environment.changePasswordURL
+  basePath='https://fortlom-isw-backend.herokuapp.com/email-password'
 constructor(private httpClient: HttpClient) { }
 
 public sendEmail(dto: EmailValues): Observable<any> {
