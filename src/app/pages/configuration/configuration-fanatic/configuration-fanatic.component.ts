@@ -164,7 +164,7 @@ export class ConfigurationFanaticComponent implements OnInit {
     const uploadImageData = new FormData();
       uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
     console.log(this.selectedFile)
-    this.httpClient.put("http://localhost:8080/api/v1/users/"+this.userdata.id+"/updatephoto", uploadImageData, { observe: 'response' })
+    this.httpClient.put("https://fortlom-isw-backend.herokuapp.com/api/v1/users/"+this.userdata.id+"/updatephoto", uploadImageData, { observe: 'response' })
     .subscribe((response) => {
       if (response.status === 200) {
         console.log('Image uploaded successfully');
@@ -186,7 +186,7 @@ export class ConfigurationFanaticComponent implements OnInit {
   getImage(){
     console.log("fanatic")
     console.log(this.fanaticdata)
-    this.httpClient.get('http://localhost:8080/api/v1/users/image/' + this.fanaticdata.id)
+    this.httpClient.get('https://fortlom-isw-backend.herokuapp.com/api/v1/users/image/' + this.fanaticdata.id)
     .subscribe(
       res => {
         this.retrieveResonse = res;

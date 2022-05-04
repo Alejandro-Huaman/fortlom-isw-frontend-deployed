@@ -260,7 +260,7 @@ public onFileChanged(event:any) {
   const uploadImageData = new FormData();
     uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
   console.log(this.selectedFile)
-  this.httpClient.put("http://localhost:8080/api/v1/users/"+this.userdata.id+"/updatephoto", uploadImageData, { observe: 'response' })
+  this.httpClient.put("https://fortlom-isw-backend.herokuapp.com/api/v1/users/"+this.userdata.id+"/updatephoto", uploadImageData, { observe: 'response' })
   .subscribe((response) => {
     if (response.status === 200) {
       console.log('Image uploaded successfully');
@@ -282,7 +282,7 @@ retrievedImage: any;
 getImage(){
   console.log("artist")
   console.log(this.artistdata)
-  this.httpClient.get('http://localhost:8080/api/v1/users/image/' + this.artistdata.id)
+  this.httpClient.get('https://fortlom-isw-backend.herokuapp.com/api/v1/users/image/' + this.artistdata.id)
   .subscribe(
     res => {
       this.retrieveResonse = res;
