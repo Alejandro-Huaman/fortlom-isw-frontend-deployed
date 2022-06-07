@@ -25,7 +25,7 @@ export class AppComponent implements OnInit{
   setUpAnalitics(){
       this.router.events.pipe(
         filter(event => event instanceof NavigationEnd)
-      ).subscribe((event:NavigationEnd) => {
+      ).subscribe((event:any) => {
         gtag('config', 'G-PYFYP1WSD7', {
           'page_path': event.urlAfterRedirects
         });
