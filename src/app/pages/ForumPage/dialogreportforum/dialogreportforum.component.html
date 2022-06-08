@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+  <p>Porque quieres reportar el foro de este usuario?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Report description</mat-label>
+    <input matInput [(ngModel)]="data.reportdescriptiondialog">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No reportar</button>
+  <button mat-button [mat-dialog-close]="data.reportdescriptiondialog" cdkFocusInitial>Reportar</button>
+</div>

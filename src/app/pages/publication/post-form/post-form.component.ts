@@ -75,7 +75,7 @@ export class PostFormComponent implements OnInit {
         console.log("bbbbbbbbbbbbb")
         for (let i of this.auxLinks){
 
-          this.httpClient.post("https://fortlom-isw-backend.herokuapp.com/api/v1/publications/"+response.id+"/multimedias", i, { observe: 'response' })
+          this.httpClient.post("http://localhost:8080/api/v1/publications/"+response.id+"/multimedias", i, { observe: 'response' })
           .subscribe((response) => {
             if (response.status === 200) {
               console.log('Image uploaded successfully');
@@ -123,7 +123,7 @@ probar(){
   uploadImageData.append('file', this.selectedFile, this.selectedFile.name);
 
   //Make a call to the Spring Boot Application to save the image
-  this.httpClient.post('https://fortlom-isw-backend.herokuapp.com/api/v1/publications/2/multimedias', uploadImageData, { observe: 'response' })
+  this.httpClient.post('http://localhost:8080/api/v1/publications/2/multimedias', uploadImageData, { observe: 'response' })
     .subscribe((response) => {
       if (response.status === 200) {
        'Image uploaded successfully';

@@ -35,6 +35,9 @@ import { interceptorProvider } from './interceptors/Interceptor.service';
 import { RegisterArtistComponent } from './pages/Register/RegisterArtist/RegisterArtist.component';
 import { RegisterFanaticComponent } from './pages/Register/RegisterFanatic/RegisterFanatic.component';
 import { SendEmailComponent } from './pages/ForgotPassword/send-email/send-email.component';
+import { DialogOverviewReportDialog } from './pages/publication/post/dialogreport/dialogreport.component';
+import { DialogreportforumComponent } from './pages/ForumPage/dialogreportforum/dialogreportforum.component';
+import { DialogreportcommentComponent } from './pages/Fanatic/Fanatic-Forumcomment/dialogreportcomment/dialogreportcomment.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,10 @@ import { SendEmailComponent } from './pages/ForgotPassword/send-email/send-email
     RegisterArtistComponent,
     RegisterFanaticComponent,
     SendEmailComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    DialogOverviewReportDialog,
+    DialogreportforumComponent,
+    DialogreportcommentComponent
   ],
   imports: [
     BrowserModule,

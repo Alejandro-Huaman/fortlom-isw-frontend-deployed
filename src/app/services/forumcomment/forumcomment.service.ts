@@ -9,9 +9,9 @@ import { Forumcomment } from 'src/app/models/forumcomment';
 })
 export class ForumcommentService {
 
-  basePath = 'https://fortlom-isw-backend.herokuapp.com/api/v1/forumcomments';
-  basepathcomentsforforoum='https://fortlom-isw-backend.herokuapp.com/api/v1/forums'
-  basePath2='https://fortlom-isw-backend.herokuapp.com/api/v1/users'
+  basePath = environment.productoURL+'/forumcomments';
+  basepathcomentsforforoum=environment.productoURL+'/forums'
+  basePath2=environment.productoURL+'/users'
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

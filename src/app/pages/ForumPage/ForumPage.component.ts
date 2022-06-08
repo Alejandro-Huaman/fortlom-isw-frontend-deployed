@@ -13,6 +13,9 @@ import { ForumcommentService } from 'src/app/services/forumcomment/forumcomment.
 import { PersonService } from 'src/app/services/person/person.service';
 import { ReportService } from 'src/app/services/report/report.service';
 import { Report } from 'src/app/models/report';
+import { ForumRules } from 'src/app/models/ForumRules';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogreportforumComponent } from './dialogreportforum/dialogreportforum.component';
 
 @Component({
   selector: 'app-ForumPage',
@@ -23,14 +26,18 @@ import { Report } from 'src/app/models/report';
 export class ForumPageComponent implements OnInit {
   isHidden=true
   forum!:Forum
+  ForumRules!:ForumRules
   reportid!:number
   forumname!:string;
+  reportdescriptiondialog!:string;
   usuario!:Person
   username!:string;
   userlastname!:string
   forumdescription!:string
+  conductrules!:string
   iddepaso!:number
   newcommentform!:FormGroup
+  rules!:FormGroup
   public idforum!:number
   Forumcomment!:Forumcomment
   dataSource1 !:MatTableDataSource<any>;
@@ -38,9 +45,10 @@ export class ForumPageComponent implements OnInit {
   date!:Date
   report!:Report
   constructor(private service:ForumService,private route:ActivatedRoute,private service2:PersonService,private formBuilder:FormBuilder,private servecommen:ForumcommentService,public datepipe: DatePipe
-    ,private artistService:ArtistService,private fanaticService:FanaticService,private reportService:ReportService) {
+    ,private artistService:ArtistService,private fanaticService:FanaticService,private reportService:ReportService, public dialog:MatDialog) {
    this.forum={}as Forum
    this.usuario={}as Person
+   this.ForumRules={}as ForumRules
    this.Forumcomment={}as Forumcomment
    this.dataSource1 = new MatTableDataSource<any>();
    this.report={}as Report
@@ -66,6 +74,12 @@ export class ForumPageComponent implements OnInit {
 
 
     })
+    this.rules=this.formBuilder.group({
+
+       setrules:[this.conductrules,Validators.required]
+
+
+    })
 
   }
   getidforum(id:number){
@@ -78,6 +92,7 @@ export class ForumPageComponent implements OnInit {
       this.forumname=this.forum.forumname;
       this.reportid=this.forum.person.id
       this.forumdescription=this.forum.forumdescription
+      this.conductrules=this.forum.conductrules
       //console.log(this.forum.user)
       this.getidUser(this.forum.person.id)
 
@@ -100,9 +115,26 @@ export class ForumPageComponent implements OnInit {
 
   }
 
-  flagPost(id:number) {
-  
-    this.report.reportDescription="foro inapropiado"
+  openDialog(id:number){
+    console.log(id);
+    const dialogRef = this.dialog.open(DialogreportforumComponent, {
+      width: '500px',
+      data: {reportdescriptiondialog: this.reportdescriptiondialog},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.reportdescriptiondialog = result;
+      console.log(this.reportdescriptiondialog);
+      if(this.reportdescriptiondialog != null){
+        this.flagPost(id,this.reportdescriptiondialog);
+      }
+    });
+  }
+
+  flagPost(id:number,descriptiondialog:string) {
+    console.log(descriptiondialog)
+    this.report.reportDescription=descriptiondialog
     this.reportService.create(this.report,+this.route.snapshot.params['id'],id)
       .subscribe((response: any) => {
         alert("reporte enviado")
@@ -110,7 +142,17 @@ export class ForumPageComponent implements OnInit {
       });
   }
 
+  createrules(){
 
+    this.service.update(this.idforum,this.ForumRules)
+    .subscribe((response:any)=>{
+
+
+    })
+
+
+
+  }
 
 
 
@@ -162,7 +204,14 @@ this.newcommentform.reset();
 
 
 }
+Limpiar2(){
 
+  this.rules.reset();
+  
+  
+  
+  }
+  
 
 
 getartists(){

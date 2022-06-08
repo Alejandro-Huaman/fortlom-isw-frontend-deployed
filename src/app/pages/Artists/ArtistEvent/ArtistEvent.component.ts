@@ -257,6 +257,16 @@ getByIdUser(id:number) {
     }
 
 
+    checkislickisinevent(link:string){
 
+       
+      if(link=="" || link==null){
+        
+        return false
+      }
+      return true
+      
+
+}
 
 }

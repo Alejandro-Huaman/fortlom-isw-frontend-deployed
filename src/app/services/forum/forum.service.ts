@@ -4,13 +4,15 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, retry} from "rxjs/operators";
 import { Forum } from 'src/app/models/forum';
+import { ForumRules } from 'src/app/models/ForumRules';
 @Injectable({
   providedIn: 'root'
 })
 export class ForumService {
 
-  basePath = 'https://fortlom-isw-backend.herokuapp.com/api/v1/forums';
-  basePath2="https://fortlom-isw-backend.herokuapp.com/api/v1/user"
+  basePath = environment.productoURL+'/forums';
+  basePath2=environment.productoURL+"/user";
+  basePath3=environment.productoURL
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -57,8 +59,8 @@ export class ForumService {
   }
   
   // Update Forum
-  update(id: any, item: any): Observable<Forum> {
-    return this.http.put<Forum>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  update(id: any, item: any): Observable<ForumRules> {
+    return this.http.put<ForumRules>(`${this.basePath3}/conductrules/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));

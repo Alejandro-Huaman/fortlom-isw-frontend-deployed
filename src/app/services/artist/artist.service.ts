@@ -10,7 +10,7 @@ import { Artist } from 'src/app/models/artist';
 export class ArtistService {
 
 
-  basePath = 'https://fortlom-isw-backend.herokuapp.com/api/v1/artists';
+  basePath = environment.productoURL+'/artists';
 
   httpOptions = {
     headers: new HttpHeaders({

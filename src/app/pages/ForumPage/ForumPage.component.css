@@ -46,3 +46,14 @@
     margin:25px;
   
   }
+  .rules{
+     margin-bottom: 25px;
+     justify-content: center;
+  }
+  .footer{
+    background-color:#3a0a0a;
+    margin-bottom: 30px;
+  }
+  .cardrules{
+    background-color:#c8c8c8d2;
+  }

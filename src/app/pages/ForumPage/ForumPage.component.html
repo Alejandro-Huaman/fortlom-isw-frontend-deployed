@@ -9,7 +9,7 @@
 <mat-card class="card">
   <mat-card-header class="head">
   <mat-card-title class="forumtitle" id="forumtitle">{{forumname}}</mat-card-title>
-  <button mat-fab class="but" (click)="flagPost(reportid)"> <mat-icon class="color" id="buttonFlagPost">flag</mat-icon>
+  <button mat-fab class="but" (click)="openDialog(reportid)"> <mat-icon class="color" id="buttonFlagPost">flag</mat-icon>
   </button>
 </mat-card-header>
 
@@ -19,7 +19,25 @@
 <p>{{forumdescription}}</p>
 </mat-card-content>
 
+<mat-card-footer class="footer">
+    <mat-card class="cardrules">
+      <mat-card-title>Rules</mat-card-title>
+      <p>{{conductrules}}</p>
+    </mat-card>
+</mat-card-footer>
 </mat-card>
+
+<mat-card class="seconcard">
+  <mat-card-title>Escriba nuevas Reglas</mat-card-title>
+  <mat-form-field appearance="fill" class="area" [formGroup]="rules">
+   <textarea formControlName="setrules" matInput type="text" [(ngModel)]="ForumRules.conductrules" id="writeForumRules"></textarea>
+  </mat-form-field>
+  <div class="button-row">
+    <button mat-raised-button  color="primary" [disabled]="!rules.valid" (click)="createrules()" id="acceptcondcutrules"> <mat-icon>add</mat-icon>Aceptar</button>
+    <button  mat-raised-button  color="warn" (click)="Limpiar2()"> <mat-icon>close</mat-icon>Limpiar</button>
+  </div>
+</mat-card>
+
 
 <app-Fanatic-Forumcomment [comentarios]="idforum"></app-Fanatic-Forumcomment>
 
@@ -27,10 +45,14 @@
   <mat-card-title class="title">Escriba un comentario</mat-card-title>
   <mat-form-field appearance="fill" class="area" [formGroup]="newcommentform">
     <mat-label>Nuevo Comentario </mat-label>
-    <textarea formControlName="comment" matInput type="comment" [(ngModel)]="Forumcomment.commentdescription" id="commentforum"></textarea>
+    <textarea formControlName="comment" matInput type="comment" [(ngModel)]="Forumcomment.commentdescription" id="commentforum">pjjjj</textarea>
   </mat-form-field>
   <div class="button-row">
     <button mat-raised-button  color="primary" [disabled]="!newcommentform.valid" (click)="crearcomentariodeforo()" id="acceptcommentforum"> <mat-icon>add</mat-icon>Aceptar</button>
     <button  mat-raised-button  color="warn" (click)="Limpiar()"> <mat-icon>close</mat-icon>Limpiar</button>
   </div>
 </mat-card>
+
+
+
+

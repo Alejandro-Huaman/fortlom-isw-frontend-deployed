@@ -5,5 +5,6 @@ export interface Event {
       eventeescription:string
       eventlikes:number
       registerdate:Date
+      ticketLink:string
       artist:Artist
 }

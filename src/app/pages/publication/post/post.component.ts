@@ -11,6 +11,9 @@ import { ReportService } from 'src/app/services/report/report.service';
 import { MultimediaService } from 'src/app/services/multimedia/multimedia.service';
 import { PersonService } from 'src/app/services/person/person.service';
 import { Publication } from 'src/app/models/publication';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogOverviewReportDialog } from './dialogreport/dialogreport.component';
+
 
 @Component({
   selector: 'app-post',
@@ -21,6 +24,7 @@ export class PostComponent implements OnInit {
 
   aux: any;
   studentData: any;
+  reportdescriptiondialog!:string;
   dataSource: MatTableDataSource<any>;
   haveInfo = false;
   havePosts = false;
@@ -48,7 +52,8 @@ descripcion!:string
               private multimediaService: MultimediaService,
               private usuarioservice: PersonService,
               private httpClient:HttpClient,
-              private $route: ActivatedRoute) {
+              private $route: ActivatedRoute,
+              public dialog:MatDialog) {
     this.report={}as Report
     this.studentData = {}
     this.dataSource = new MatTableDataSource<any>();
@@ -123,14 +128,32 @@ descripcion!:string
 
 
   }
+  
+  openDialog(){
+    const dialogRef = this.dialog.open(DialogOverviewReportDialog, {
+      width: '500px',
+      data: {reportdescriptiondialog: this.reportdescriptiondialog},
+    });
 
-  flagPost(): void {
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.reportdescriptiondialog = result;
+      console.log(this.reportdescriptiondialog);
+      if(this.reportdescriptiondialog != null){
+        this.flagPost(this.reportdescriptiondialog);
+      }
+    });
+  }
+  
+
+  flagPost(descriptiondialog:string): void {
+    console.log(descriptiondialog);
     this.aux = {
-      ReportDescription: "Insultos frecuentes",
+      ReportDescription: descriptiondialog,
       UserMain: +this.$route.snapshot.params['id'],
       PostReported: this.fullPost.id
     }
-    this.report.reportDescription="publicacion inapropiada"
+    this.report.reportDescription= descriptiondialog
     this.reportService.create(this.report,+this.$route.snapshot.params['id'],this.relatedUser.id)
       .subscribe((response: any) => {
         alert("reporte enviado")

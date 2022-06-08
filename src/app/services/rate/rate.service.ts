@@ -9,8 +9,8 @@ import { Rate } from 'src/app/models/rate';
 })
 export class RateService {
 
-  basePath = 'https://fortlom-isw-backend.herokuapp.com/api/v1/rates';
-  basePatn2='https://fortlom-isw-backend.herokuapp.com/api/v1/fanatics';
+  basePath = environment.productoURL+'/rates';
+  basePatn2=environment.productoURL+'/fanatics';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

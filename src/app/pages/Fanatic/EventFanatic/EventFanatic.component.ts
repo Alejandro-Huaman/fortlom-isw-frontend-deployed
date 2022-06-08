@@ -31,7 +31,7 @@ export class EventFanaticComponent implements OnInit {
   conditionaltype : string = "Test";
   displayedColumns: string[] = ['id','EventName','EventDescription','ArtistID','Likes'];
   showeventartist = false;
-
+   checklink=true
   @ViewChild('EventForm', {static: false})
   EventForm!: NgForm;
 
@@ -121,7 +121,10 @@ export class EventFanaticComponent implements OnInit {
 
   ShowEventsArtist(){
     this.showeventartist = true;
+    this.checklink=false
     console.log(this.showeventartist)
+    console.log("s")
+    console.log(this.checklink)
   }
 
   NotShowEventsArtist(){
@@ -154,7 +157,17 @@ export class EventFanaticComponent implements OnInit {
   }
 
 
+  checkislickisinevent(link:string){
 
+        
+        if(link=="" || link==null){
+          
+          return false
+        }
+        return true
+        
+
+  }
 
 
 

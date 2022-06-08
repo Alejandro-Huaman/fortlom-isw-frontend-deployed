@@ -50,7 +50,12 @@
         <!-- #enddocregion datepicker-actions -->
         </mat-form-field>
 
-
+        <mat-form-field>
+          <input matInput placeholder="EventTicketLink" name="EventTicketLink" 
+            [(ngModel)]="eventdata.ticketLink" id="seteventticketlink">
+            <mat-error>Es requerido</mat-error>
+        </mat-form-field>
+        <mat-divider></mat-divider>
 
 
       </form>
@@ -125,9 +130,23 @@
                 <td>
                   <p>{{getfechacomment(arr.registerdate)}}</p>
                 </td>
+                
               </tr>
             </table>
           </mat-card-actions>
+          <mat-card-footer>
+            
+            
+
+
+           <div *ngIf="checkislickisinevent(arr.ticketLink)">
+
+            <a href="{{arr.ticketLink}}" id="tikcetlink"><button mat-button><mat-icon>link</mat-icon></button></a>
+
+
+           </div>
+
+          </mat-card-footer>
         </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

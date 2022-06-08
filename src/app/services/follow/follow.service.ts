@@ -11,8 +11,8 @@ import { Follow } from 'src/app/models/follow';
 export class FollowService {
 
 
-  basePath = 'https://fortlom-isw-backend.herokuapp.com/api/v1/follows';
-  basePatn2='https://fortlom-isw-backend.herokuapp.com/api/v1/fanatics';
+  basePath = environment.productoURL+'/follows';
+  basePatn2=environment.productoURL+'/fanatics';
   
   httpOptions = {
     headers: new HttpHeaders({
