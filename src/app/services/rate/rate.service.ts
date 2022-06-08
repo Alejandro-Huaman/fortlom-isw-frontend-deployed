@@ -9,8 +9,8 @@ import { Rate } from 'src/app/models/rate';
 })
 export class RateService {
 
-  basePath = environment.productoURL+'/rates';
-  basePatn2=environment.productoURL+'/fanatics';
+  basePath = 'https://experiment-isw-backend-jenkins.herokuapp.com/api/v1/rates';
+  basePatn2='https://experiment-isw-backend-jenkins.herokuapp.com/api/v1/fanatics';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

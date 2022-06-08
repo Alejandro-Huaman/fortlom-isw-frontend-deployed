@@ -9,9 +9,9 @@ import { Forumcomment } from 'src/app/models/forumcomment';
 })
 export class ForumcommentService {
 
-  basePath = environment.productoURL+'/forumcomments';
-  basepathcomentsforforoum=environment.productoURL+'/forums'
-  basePath2=environment.productoURL+'/users'
+  basePath = 'https://experiment-isw-backend-jenkins.herokuapp.com/api/v1/forumcomments';
+  basepathcomentsforforoum='https://experiment-isw-backend-jenkins.herokuapp.com/api/v1/forums'
+  basePath2='https://experiment-isw-backend-jenkins.herokuapp.com/api/v1/users'
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

@@ -11,8 +11,8 @@ import { Follow } from 'src/app/models/follow';
 export class FollowService {
 
 
-  basePath = environment.productoURL+'/follows';
-  basePatn2=environment.productoURL+'/fanatics';
+  basePath = 'https://experiment-isw-backend-jenkins.herokuapp.com/api/v1/follows';
+  basePatn2= 'https://experiment-isw-backend-jenkins.herokuapp.com/api/v1/fanatics';
   
   httpOptions = {
     headers: new HttpHeaders({

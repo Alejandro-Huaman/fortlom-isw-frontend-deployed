@@ -10,9 +10,9 @@ import { ForumRules } from 'src/app/models/ForumRules';
 })
 export class ForumService {
 
-  basePath = environment.productoURL+'/forums';
-  basePath2=environment.productoURL+"/user";
-  basePath3=environment.productoURL
+  basePath = 'https://experiment-isw-backend-jenkins.herokuapp.com/api/v1/forums';
+  basePath2= "https://experiment-isw-backend-jenkins.herokuapp.com/api/v1/user";
+  basePath3='https://experiment-isw-backend-jenkins.herokuapp.com/api/v1'
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

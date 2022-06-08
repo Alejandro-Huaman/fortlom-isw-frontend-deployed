@@ -10,7 +10,7 @@ import { Artist } from 'src/app/models/artist';
 export class ArtistService {
 
 
-  basePath = environment.productoURL+'/artists';
+  basePath = 'https://experiment-isw-backend-jenkins.herokuapp.com/api/v1/artists';
 
   httpOptions = {
     headers: new HttpHeaders({
