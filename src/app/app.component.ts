@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import { filter } from 'rxjs/operators';
 import {OnInit} from '@angular/core';
+import { GoogleTagManagerService } from 'angular-google-tag-manager';
 
 declare let gtag: Function;
 
@@ -13,12 +14,13 @@ declare let gtag: Function;
 export class AppComponent implements OnInit{
   title = 'fortlom-isw-f';
 
-  constructor(private router: Router){
-  
+  constructor(private router: Router, private gtmService: GoogleTagManagerService,){
+      gtmService.addGtmToDom();
   }
 
   ngOnInit(){
-    this.setUpAnalitics();    
+    this.setUpAnalitics();
+    this.setUpTagManager();
   }
 
   setUpAnalitics(){
@@ -29,5 +31,18 @@ export class AppComponent implements OnInit{
           'page_path': event.urlAfterRedirects
         });
       });
+  }
+
+  setUpTagManager(){
+      this.router.events.forEach(item => {
+        if (item instanceof NavigationEnd) {
+            const gtmTag = {
+                event: 'page',
+                pageName: item.url
+            };
+
+            this.gtmService.pushTag(gtmTag);
+        }
+    });
   }
 }

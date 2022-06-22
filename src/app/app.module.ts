@@ -38,6 +38,8 @@ import { SendEmailComponent } from './pages/ForgotPassword/send-email/send-email
 import { DialogOverviewReportDialog } from './pages/publication/post/dialogreport/dialogreport.component';
 import { DialogreportforumComponent } from './pages/ForumPage/dialogreportforum/dialogreportforum.component';
 import { DialogreportcommentComponent } from './pages/Fanatic/Fanatic-Forumcomment/dialogreportcomment/dialogreportcomment.component';
+import { GoogleTagManagerModule } from 'angular-google-tag-manager';
+
 
 @NgModule({
   declarations: [
@@ -82,6 +84,9 @@ import { DialogreportcommentComponent } from './pages/Fanatic/Fanatic-Forumcomme
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    GoogleTagManagerModule.forRoot({
+      id: "GTM-WZW48CK",
+    })
     
   ],
   providers: [interceptorProvider],
